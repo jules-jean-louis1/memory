@@ -45,6 +45,10 @@ if (isset($_POST['deconnexion'])) {
     <!-- Right elements -->
     <div class="d-flex align-items-center">
       <!-- Icon -->
+      
+        <div class="">
+            <a href=""><i class="fa-brands fa-github fa-2xl"></i></a>
+        </div>
       <div class="connect">
         <?php if (isset($_SESSION['login']) != null) { ?>
         <div class="d-flex flex-row">

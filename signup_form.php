@@ -17,18 +17,23 @@ require_once 'classes/Connexion.php';
     <?php include_once('./import/header.php'); ?>
 <!-- H E A D E R - E N D -->
     <main>
-        <article>
-            <section>
+        <article class="container">
+            <section class="warpper">
                 <div id="form_up">
                     <form action="" method="post">
                         <div class="form-group">
                             <label for="login">Nom d'utilisateur :</label>
                             <input type="text" name="login" id="login" class="form-control" placeholder="Entrer un nom d'utilisateur" aria-describedby="helpId">
+                        </div>
+                        <div class="form-group">
                             <label for="password">Mot de passe :</label>
                             <input type="text" name="password" id="password" class="form-control" placeholder="Entrer un mot de passe" aria-describedby="helpId">
+                        </div>
+                        <div class="form-group">
                             <label for="password_confirm">Confirmer le mot de passe :</label>
                             <input type="text" name="password_confirm" id="password_confirm" class="form-control" placeholder="Confirmer le mot de passe" aria-describedby="helpId">
                         </div>
+                        <input type="submit" value="S'inscrire" name="signup" class="btn btn-outline-primary">                            
                     </form>
                 </div>
             </section>
