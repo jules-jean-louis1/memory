@@ -1,5 +1,25 @@
 <?php
 require_once 'classes/Connexion.php';
+$message = array();
+
+
+if (isset($_POST['signup'])) {
+    if (!empty($_POST['login']) && !empty($_POST['password']) && !empty($_POST['password_confirm'])) {
+        $login = $_POST['login'];
+        $password = $_POST['password'];
+        $password_confirm = $_POST['password_confirm'];
+
+        if ($password == $password_confirm) {
+            $connexion = new Connexion();
+            $connexion->register($login, $password, $nom);
+            $message = "Inscription réussie";
+        } else {
+            $message = "Les mots de passe ne correspondent pas";
+        } 
+    } else {
+        $message = "Veuillez remplir tous les champs";
+    }
+}
 ?>
 
 <!DOCTYPE html>
