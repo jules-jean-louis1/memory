@@ -18,15 +18,22 @@ class Connexion
             exit;
         }
     }
-    public function register($login,$password)
+    public function register($login, $password)
     {
         $this->login = $login;
         $this->password = $password;
 
-        $sql = "INSERT INTO users (login,password) VALUES (:login,:password)";
-        $stmt = $this->db->prepare($sql);
-        $stmt->execute(['login' => $login, 'password' => $password]);
+        $sql = "INSERT INTO utilisateurs (login,password) VALUES (:login,:password)";
+        $exec = $this->db->prepare($sql);
+        $exec->bindValue(':login', $this->login, PDO::PARAM_STR);
+        $exec->bindValue(':password', $this->password, PDO::PARAM_STR);
+        $exec->execute();
 
+    }
+    public function connect($login, $password)
+    {
+        $this->login = $login;
+        $this->password = $password;
     }
     public function disconnect()
     {
