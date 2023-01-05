@@ -9,6 +9,12 @@
     <title>Memory - acceuil</title>
 </head>
 <body>
-    
+<!-- H E A D E R -->
+<?php include_once('./import/header.php'); ?>
+<!-- H E A D E R -->
+<!-- C O N T E N T -->
+<!-- F O O T E R -->
+<?php include_once('./import/footer.php'); ?>
+<!-- F O O T E R -->
 </body>
 </html>
