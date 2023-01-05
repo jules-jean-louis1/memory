@@ -28,7 +28,12 @@ class Connexion
         $sql = "INSERT INTO users (login,password,nom) VALUES (:login,:password,:nom)";
         $stmt = $this->db->prepare($sql);
         $stmt->execute(['login' => $login, 'password' => $password, 'nom' => $nom]);
-        
+
+    }
+    public function disconnect()
+    {
+        session_destroy();
+        header('Location: index.php');
     }
 }
 
