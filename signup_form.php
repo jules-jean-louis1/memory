@@ -21,7 +21,14 @@ require_once 'classes/Connexion.php';
             <section>
                 <div id="form_up">
                     <form action="" method="post">
-
+                        <div class="form-group">
+                            <label for="login">Nom d'utilisateur :</label>
+                            <input type="text" name="login" id="login" class="form-control" placeholder="Entrer un nom d'utilisateur" aria-describedby="helpId">
+                            <label for="password">Mot de passe :</label>
+                            <input type="text" name="password" id="password" class="form-control" placeholder="Entrer un mot de passe" aria-describedby="helpId">
+                            <label for="password_confirm">Confirmer le mot de passe :</label>
+                            <input type="text" name="password_confirm" id="password_confirm" class="form-control" placeholder="Confirmer le mot de passe" aria-describedby="helpId">
+                        </div>
                     </form>
                 </div>
             </section>
