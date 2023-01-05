@@ -34,6 +34,21 @@ class Connexion
     {
         $this->login = $login;
         $this->password = $password;
+
+        $sql = "SELECT * FROM utilisateurs WHERE login = :login AND password = :password";
+        $exec = $this->db->prepare($sql);
+        $exec->bindValue(':login', $this->login, PDO::PARAM_STR);
+        $exec->bindValue(':password', $this->password, PDO::PARAM_STR);
+        $exec->execute();
+        $result = $exec->fetch(PDO::FETCH_ASSOC);
+
+        if ($result) {
+            $_SESSION['login'] = $result['login'];
+            $_SESSION['id'] = $result['id'];
+            header('Location: index.php');
+        } else {
+            $this->message = 'Identifiants incorrects';
+        }
     }
     public function disconnect()
     {
