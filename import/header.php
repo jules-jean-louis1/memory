@@ -47,7 +47,7 @@ if (isset($_POST['deconnexion'])) {
       <!-- Icon -->
       
         <div class="">
-            <a href=""><i class="fa-brands fa-github fa-2xl"></i></a>
+            <a href="https://github.com/jules-jean-louis1/memory"><i class="fa-brands fa-github fa-2xl"></i></a>
         </div>
       <div class="connect">
         <?php if (isset($_SESSION['login']) != null) { ?>
