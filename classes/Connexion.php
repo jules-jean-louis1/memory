@@ -41,14 +41,24 @@ class Connexion
         $exec->bindValue(':password', $this->password, PDO::PARAM_STR);
         $exec->execute();
         $result = $exec->fetch(PDO::FETCH_ASSOC);
+        
 
-        if ($result) {
+        if (password_verify($password, $result['password']) == 1) {
             $_SESSION['login'] = $result['login'];
             $_SESSION['id'] = $result['id'];
+            $_SESSION['password'] = $result['password'];
             header('Location: index.php');
         } else {
             $this->message = 'Identifiants incorrects';
         }
+        /* if ($result) {
+            $_SESSION['login'] = $result['login'];
+            $_SESSION['id'] = $result['id'];
+            $_SESSION['password'] = $this->password;
+            header('Location: index.php');
+        } else {
+            $this->message = 'Identifiants incorrects';
+        } */
     }
     public function disconnect()
     {
