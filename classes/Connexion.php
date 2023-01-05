@@ -5,7 +5,6 @@ class Connexion
     public $id;
     public $login;
     public $password;
-    public $nom;
     public $message;
     protected $db;
 
@@ -19,15 +18,14 @@ class Connexion
             exit;
         }
     }
-    public function register($login,$password,$nom)
+    public function register($login,$password)
     {
         $this->login = $login;
         $this->password = $password;
-        $this->nom = $nom;
 
-        $sql = "INSERT INTO users (login,password,nom) VALUES (:login,:password,:nom)";
+        $sql = "INSERT INTO users (login,password) VALUES (:login,:password)";
         $stmt = $this->db->prepare($sql);
-        $stmt->execute(['login' => $login, 'password' => $password, 'nom' => $nom]);
+        $stmt->execute(['login' => $login, 'password' => $password]);
 
     }
     public function disconnect()
