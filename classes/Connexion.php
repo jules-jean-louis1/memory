@@ -62,13 +62,23 @@ class Connexion
         session_destroy();
         header('Location: index.php');
     }
-    public function delete($id)
+    public function delete()
     {
-        $this->id = $id;
-
+        $this->id = $_SESSION['id'];
         $sql = "DELETE FROM utilisateurs WHERE id = :id";
         $exec = $this->db->prepare($sql);
         $exec->bindValue(':id', $this->id, PDO::PARAM_INT);
+        $exec->execute();
+    }
+    public function update($login, $password)
+    {
+        $this->id = $login;
+        $this->password = $password;
+
+        $sql = "UPDATE utilisateurs SET login = :login, password = :password WHERE id = :id";
+        $exec = $this->db->prepare($sql);
+        $exec->bindValue(':login', $this->login, PDO::PARAM_STR);
+        $exec->bindValue(':password', $this->password, PDO::PARAM_STR);
         $exec->execute();
     }
 }
