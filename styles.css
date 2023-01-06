@@ -26,6 +26,25 @@ header {
     color: #183153;
     transition: 125ms ease-in-out;
 }
+/*#####################################################################
+Button if login */
+#navbarDropdown {
+    background-color: #74C0FC;
+    border: 2px solid #183153;
+    color: #183153;
+    border-radius: 8px;
+    box-shadow: 0 3px 0px #183153;
+}
+#btn_deco_h {
+    background-color: #FF8787;
+    border: 2px solid #183153;
+    color: #183153;
+    border-radius: 8px;
+    box-shadow: 0 3px 0px #183153;
+}
+/*#####################################################################
+Button if non login */
+
 #gap_header_button {
     display: flex;
     gap: 8px;

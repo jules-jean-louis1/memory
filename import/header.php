@@ -54,11 +54,10 @@ if (isset($_POST['deconnexion'])) {
         <div class="d-flex flex-row" id="gap_header_button">
             <div class="">
                 <form action="" method="post">
-                    <input type="submit" name="deconnexion" value="Déconnexion" class="btn btn-outline-danger" />
+                    <input type="submit" name="deconnexion" value="Déconnexion" class="btn btn-outline-danger" id="btn_deco_h"/>
                 </form>
             </div>
-            <div class="">
-                <div class="nav-item me-3 me-lg-0 dropdown btn btn-outline-primary">
+              <div class="">
                 <a
                 class="nav-link dropdown-toggle"
                 href="#"
@@ -81,8 +80,7 @@ if (isset($_POST['deconnexion'])) {
                             <a class="dropdown-item" href="#">Something else here</a>
                         </li>
                     </ul>
-                </div>
-            </div>
+              </div>
         </div>
             <?php } else { ?>
         <div class="d-flex flex-row" id="gap_header_button">
