@@ -34,31 +34,28 @@ class Connexion
     {
         $this->login = $login;
         $this->password = $password;
+        $message = [];
 
-        $sql = "SELECT * FROM utilisateurs WHERE login = :login AND password = :password";
+        $sql = "SELECT * FROM utilisateurs WHERE login = :login";
         $exec = $this->db->prepare($sql);
         $exec->bindValue(':login', $this->login, PDO::PARAM_STR);
-        $exec->bindValue(':password', $this->password, PDO::PARAM_STR);
         $exec->execute();
         $result = $exec->fetch(PDO::FETCH_ASSOC);
-        
 
-        if (password_verify($password, $result['password']) == 1) {
-            $_SESSION['login'] = $result['login'];
-            $_SESSION['id'] = $result['id'];
-            $_SESSION['password'] = $result['password'];
-            header('Location: index.php');
+        if (is_array($result)) {
+            if (password_verify($this->password, $result['password'])) {
+                $_SESSION['id'] = $result['id'];
+                $_SESSION['login'] = $result['login'];
+                $message [] = 'Vous êtes connecté';
+                header('Location: index.php');
+            } else {
+                $message [] = 'Mot de passe incorrect';
+            }
         } else {
-            $this->message = 'Identifiants incorrects';
+            $message [] = 'Utilisateur inexistant';
         }
-        /* if ($result) {
-            $_SESSION['login'] = $result['login'];
-            $_SESSION['id'] = $result['id'];
-            $_SESSION['password'] = $this->password;
-            header('Location: index.php');
-        } else {
-            $this->message = 'Identifiants incorrects';
-        } */
+        return $message;
+
     }
     public function disconnect()
     {

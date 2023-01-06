@@ -59,6 +59,7 @@ if (isset($_POST['connect'])) {
                                     <?php foreach ($message as $msg) : ?>
                                         <p><?= $msg ?></p>
                                     <?php endforeach; ?>
+                                    <?php endif; ?>
                             </div>
                             <div class="form-group">
                                 <input type="submit" value="Connexion" name="connect">
@@ -69,5 +70,9 @@ if (isset($_POST['connect'])) {
             </section>
         </article>
     </main>
+    <!-- C O N T E N T - E N D -->
+<!-- F O O T E R -->
+<?php include_once('./import/footer.php'); ?>
+<!-- F O O T E R - E N D -->
 </body>
 </html>
