@@ -62,6 +62,15 @@ class Connexion
         session_destroy();
         header('Location: index.php');
     }
+    public function delete($id)
+    {
+        $this->id = $id;
+
+        $sql = "DELETE FROM utilisateurs WHERE id = :id";
+        $exec = $this->db->prepare($sql);
+        $exec->bindValue(':id', $this->id, PDO::PARAM_INT);
+        $exec->execute();
+    }
 }
 
 ?>
