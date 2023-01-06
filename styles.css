@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Varela Round', sans-serif;
+    list-style: none;
+}
+a {
+    text-decoration: none;
+}
+/*#####################################################################
+#######################################################################
+""" H E A D E R  - P A G E """ ##########################################
+#######################################################################
+#####################################################################*/
+
+/*#####################################################################
+#######################################################################
+""" L O G I N  - P A G E """ ##########################################
+#######################################################################
+#####################################################################*/
+body {
+    background-image: url(./images/background/index.png);
+    background-color: #F0F1F3;
+}
+main {
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.warpper_login {
+    width: 20vw;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 40px 20px;
+}
+.container_input {
+    display: flex;
+    flex-direction: column;  
+    align-items: center;
+    padding: 10px;
+}
+.icon_user {
+    color: #63E6BE;
+}
+.title_login {
+    color: #63E6BE;
+}
+#username, #password {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 2px solid #183153;
+    margin-bottom: 10px;
+}
+#btn_login {
+    font-size: 1.5rem;
+    background-color: #63E6BE;
+    color: #183153;
+    border: 2px solid #183153;
+    border-radius: 8px;
+    width: 100%;
+    padding: 15px;
+}
