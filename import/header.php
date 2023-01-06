@@ -43,15 +43,15 @@ if (isset($_POST['deconnexion'])) {
     <!-- Collapsible wrapper -->
 
     <!-- Right elements -->
-    <div class="d-flex align-items-center">
+    <div class="d-flex align-items-center" id="gap_header_button">
       <!-- Icon -->
       
         <div class="">
-            <a href="https://github.com/jules-jean-louis1/memory"><i class="fa-brands fa-github fa-2xl"></i></a>
+            <a href="https://github.com/jules-jean-louis1/memory"><i class="fa-brands fa-github fa-2xl color_icon_git"></i></a>
         </div>
       <div class="connect">
         <?php if (isset($_SESSION['login']) != null) { ?>
-        <div class="d-flex flex-row">
+        <div class="d-flex flex-row" id="gap_header_button">
             <div class="">
                 <form action="" method="post">
                     <input type="submit" name="deconnexion" value="Déconnexion" class="btn btn-outline-danger" />
@@ -85,24 +85,24 @@ if (isset($_POST['deconnexion'])) {
             </div>
         </div>
             <?php } else { ?>
-        <div class="d-flex flex-row">
+        <div class="d-flex flex-row" id="gap_header_button">
             <div class="d-flex justify-content-center align-items-center">
-                <button class="btn btn-success">
+                <button class="btn btn-success" id="btn_signup_h">
                     <a class="text-reset me-3" href="signup_form.php">
                         <i class="fa-solid fa-arrow-right-to-bracket"></i>
                         S'inscrire
-                    </a>
+                      </a>
                 </button>
             </div>
             <div class="dropdown">
-                <button class="btn btn-outline-success">
+                <button class="btn btn-outline-success color_icon" id="btn_login_h">
                     <a
                         class="text-reset me-3"
                         href="login_form.php"
                         role="button"
                         aria-expanded="false"
                     >
-                        <i class="fa-solid fa-user"></i>
+                        <i class="fa-solid fa-user color_icon"></i>
                         Se connecter
                     <!-- <span class="badge rounded-pill badge-notification bg-danger">1</span> -->
                     </a>

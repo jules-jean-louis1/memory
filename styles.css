@@ -16,6 +16,42 @@ a {
 #######################################################################
 #####################################################################*/
 
+header {
+    font-family: 'Varela Round', sans-serif;
+}
+.color_icon_git {
+    color: #c2c2c2;
+}
+.color_icon_git:hover {
+    color: #183153;
+    transition: 125ms ease-in-out;
+}
+#gap_header_button {
+    display: flex;
+    gap: 8px;
+}
+#btn_signup_h {
+    text-align: center;
+    background-color: #63E6BE;
+    border: 2px solid #183153;
+    color: #183153;
+    border-radius: 8px;
+    box-shadow: 0 3px 0px #183153;
+}
+#btn_signup_h:hover {
+    background-color: #0CA678;
+}
+#btn_login_h:hover {
+    background-color: #0CA678;
+    border: 2px solid #183153;
+}
+#btn_login_h {
+    background-color: transparent;
+    border: 2px solid #183153;
+    color: #183153;
+    border-radius: 8px;
+    box-shadow: 0 3px 0px #183153;
+}
 /*#####################################################################
 #######################################################################
 """ L O G I N  - P A G E """ ##########################################
@@ -70,4 +106,9 @@ main {
     border-radius: 8px;
     width: 100%;
     padding: 15px;
+    margin-bottom: 13.2px;
+    box-shadow: 0 10px 0px #183153;
+}
+#btn_login:hover {
+    background-color: #0CA678;
 }
