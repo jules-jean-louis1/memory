@@ -2,20 +2,21 @@
 session_start();
 require_once('./classes/Connexion.php');
 
+$message = [];
+
 if (isset($_POST['connect'])) {
     $login = $_POST['username'];
     $password = $_POST['password'];
-    $password = password_hash($password, PASSWORD_DEFAULT);
 
     if(!empty($login) && !empty($password)) {
         $connexion = new Connexion();
         $connexion->connect($login, $password);
     } else {
-        echo 'Veuillez remplir tous les champs';
+        $message [] = 'Veuillez remplir tous les champs';
     }
+
 }
 
-echo $r = password_verify($_POST['password'], $password);
 ?>
 
 <!DOCTYPE html>
@@ -52,6 +53,12 @@ echo $r = password_verify($_POST['password'], $password);
                             <div class="form-group">
                                 <label for="password">Mot de passe</label>
                                 <input type="password" name="password" id="password" placeholder="Mot de passe">
+                            </div>
+                            <div class="form-group">
+                                <?php if (isset($message)) : ?>
+                                    <?php foreach ($message as $msg) : ?>
+                                        <p><?= $msg ?></p>
+                                    <?php endforeach; ?>
                             </div>
                             <div class="form-group">
                                 <input type="submit" value="Connexion" name="connect">
