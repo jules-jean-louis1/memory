@@ -75,7 +75,7 @@ if (isset($_POST['connect'])) {
                                     <input type="submit" value="Connexion" name="connect" class="btn btn-primary" id="btn_login">
                                 </div>
                                 <div class="form-group">
-                                    <p>Pas encore de compte ? <a href="register.php">Inscrivez-vous</a></p>
+                                    <p>Pas encore de compte ? <a href="signup_form.php">Inscrivez-vous</a></p>
                                 </div>
                             </div>
                         </form>
