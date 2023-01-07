@@ -69,8 +69,9 @@ if (isset($_POST['deconnexion'])) {
                   role="button"
                   data-mdb-toggle="dropdown"
                   aria-expanded="false"
-                  ><?php echo $_SESSION['login']; ?>
-                  <i class="fas fa-user"></i>
+                  >
+                  <i class="fas fa-user" style="padding-right: 5px;"></i>
+                  <?php echo $_SESSION['login']; ?>
                   </a>
                       <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                           <li>
