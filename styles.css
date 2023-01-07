@@ -73,6 +73,71 @@ Button if non login */
 }
 /*#####################################################################
 #######################################################################
+""" I N D E X  - P A G E """ ##########################################
+#######################################################################
+#####################################################################*/
+.warpper_cont_i {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 8px;
+    width: 65vw;
+    height: 50vh;
+    gap: 20px;
+}
+.col-12 h1 {
+    color:#183153;
+    font-weight: 900;
+}
+.title_i {
+    width: 50vw;
+}
+.img_i {
+    overflow: hidden;
+    width: 50vw;
+    border-radius: 8px;
+}
+.container_img_i img {
+    position: relative;
+    left: -45px;
+    top: -34px;
+    width: 120%;
+}
+#btn_play_i {
+    border: 0.125em solid #183153;
+    border-radius: 0.5em;
+    box-shadow: 0 0.375em 0 #183153;
+    font-weight: 900;
+    color: #183153;
+    padding: calc((4em - (1em * 1.5) - (0.125em * 2) - 0.375em) / 2) calc(1em * 1.5);
+    background-color: #FF8787;
+}
+#btn_play_i:hover {
+    background-color: #e03131;
+    transition: 0 ease-in;
+}
+#color_font_a_i a {
+    color: #183153; 
+    font-weight: 900;
+}
+#btn_scores_i {
+    border: 0.125em solid #183153;
+    border-radius: 0.5em;
+    box-shadow: 0 0.375em 0 #183153;
+    font-weight: 900;
+    color: #183153;
+    padding: calc((4em - (1em * 1.5) - (0.125em * 2) - 0.375em) / 2) calc(1em * 1.5);
+    background-color: transparent;
+}
+#btn_scores_i:hover {
+    background-color: rgb(150, 150, 150);
+    transition: 0 ease-in;
+}
+
+/*#####################################################################
+#######################################################################
 """ L O G I N  - P A G E """ ##########################################
 #######################################################################
 #####################################################################*/
@@ -81,7 +146,7 @@ body {
     background-color: #F0F1F3;
 }
 main {
-    height: 90vh;
+    height: 85vh;
     display: flex;
     justify-content: center;
     flex-direction: column;

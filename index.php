@@ -20,19 +20,30 @@ include_once('./classes/Connexion.php');
 <!-- H E A D E R - E N D -->
 <!-- C O N T E N T -->
     <main>
-        <article>
-            <section>
+        <article class="box_white_w_i">
+            <section class="wapper_i">
                 <div class="container">
                     <div class="row">
-                        <div class="col-12">
-                            <h1>Memory</h1>
-                            <p>Memory est un jeu de cartes qui consiste à retourner deux cartes identiques pour les faire disparaître du jeu. Le but du jeu est de réussir à retourner toutes les cartes du jeu en un minimum de coups.</p>
-                            <p>Le jeu est composé de 16 cartes, 8 paires de cartes identiques. Chaque carte est composée d'une image différente.</p>
+                        <div class="warpper_cont_i">
+                            <div class="title_i">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <h1>Memory</h1>
+                                        <p>Memory est un jeu de cartes qui consiste à retourner deux cartes identiques pour les faire disparaître du jeu. Le but du jeu est de réussir à retourner toutes les cartes du jeu en un minimum de coups.</p>
+                                        <!-- <p>Le jeu est composé de 16 cartes, 8 paires de cartes identiques. Chaque carte est composée d'une image différente.</p> -->
+                                    </div>
+                                </div>
+                                <div class="d-flex flex-column" id="color_font_a_i">
+                                    <button id="btn_play_i"><a href="">Jouer</a></button>
+                                    <button id="btn_scores_i"><a href="">Voir les scores</a></button>
+                                </div>
+                            </div>
+                            <div class="img_i">
+                                <div class="container_img_i">
+                                    <img src="./images/background/amirali-mirhashemian-Qp-UPUet86g-unsplash.jpg" alt="">
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <button class="btn btn-outline-primary"><a href="">Jouer</a></button>
-                        <button class="btn btn-outline-primary"><a href="">Voir les scores</a></button>
                     </div>
                 </div>
             </section>
