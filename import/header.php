@@ -89,16 +89,16 @@ if (isset($_POST['deconnexion'])) {
         <div class="d-flex flex-row" id="gap_header_button">
             <div class="d-flex justify-content-center align-items-center">
                 <button class="btn btn-success" id="btn_signup_h">
-                    <a class="text-reset me-3" href="signup_form.php">
+                    <a class="text-reset" href="signup_form.php">
                         <i class="fa-solid fa-arrow-right-to-bracket"></i>
                         S'inscrire
                       </a>
                 </button>
             </div>
             <div class="dropdown">
-                <button class="btn btn-outline-success color_icon" id="btn_login_h">
+                <button id="btn_login_h">
                     <a
-                        class="text-reset me-3"
+                        class="text-reset"
                         href="login_form.php"
                         role="button"
                         aria-expanded="false"

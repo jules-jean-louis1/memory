@@ -50,26 +50,29 @@ Button if non login */
     gap: 8px;
 }
 #btn_signup_h {
-    text-align: center;
     background-color: #63E6BE;
-    border: 2px solid #183153;
+    border: 0.125em solid #183153;
+    border-radius: 0.5em;
+    box-shadow: 0 0.375em 0 #183153;
+    font-weight: 900;
     color: #183153;
-    border-radius: 8px;
-    box-shadow: 0 3px 0px #183153;
+    padding: 7px 20px;
 }
 #btn_signup_h:hover {
     background-color: #0CA678;
 }
-#btn_login_h:hover {
-    background-color: #0CA678;
-    border: 2px solid #183153;
-}
 #btn_login_h {
-    background-color: transparent;
-    border: 2px solid #183153;
+    border: 0.125em solid #183153;
+    border-radius: 0.5em;
+    box-shadow: 0 0.375em 0 #183153;
+    font-weight: 900;
     color: #183153;
-    border-radius: 8px;
-    box-shadow: 0 3px 0px #183153;
+    padding: 7px 20px;
+    background-color: transparent;
+}
+#btn_login_h:hover {
+    background-color: #63E6BE;
+    border: 2px solid #183153;
 }
 /*#####################################################################
 #######################################################################
@@ -188,13 +191,14 @@ main {
 #btn_login {
     font-size: 1.5rem;
     background-color: #63E6BE;
+    border: 0.125em solid #183153;
+    border-radius: 0.5em;
+    box-shadow: 0 0.375em 0 #183153;
+    font-weight: 900;
     color: #183153;
-    border: 2px solid #183153;
-    border-radius: 8px;
+    padding: 10px 20px;
     width: 100%;
-    padding: 15px;
     margin-bottom: 13.2px;
-    box-shadow: 0 10px 0px #183153;
 }
 #btn_login:hover {
     background-color: #0CA678;
