@@ -39,7 +39,7 @@ if (isset($_POST['deconnexion'])) {
             <a class="nav-link" href="scores.php">Scores</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Aides</a>
+            <a class="nav-link" href="help.php">Aides</a>
           </li>
         </ul>
         <!-- Left links -->
