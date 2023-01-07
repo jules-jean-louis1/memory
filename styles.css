@@ -93,6 +93,7 @@ Button if non login */
 }
 .title_i {
     width: 50vw;
+    height: 65%;
 }
 .img_i {
     overflow: hidden;
@@ -113,6 +114,7 @@ Button if non login */
     color: #183153;
     padding: calc((4em - (1em * 1.5) - (0.125em * 2) - 0.375em) / 2) calc(1em * 1.5);
     background-color: #FF8787;
+    width: 192px;
 }
 #btn_play_i:hover {
     background-color: #e03131;
@@ -121,6 +123,7 @@ Button if non login */
 #color_font_a_i a {
     color: #183153; 
     font-weight: 900;
+    gap: 20px;
 }
 #btn_scores_i {
     border: 0.125em solid #183153;

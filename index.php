@@ -25,17 +25,25 @@ include_once('./classes/Connexion.php');
                 <div class="container">
                     <div class="row">
                         <div class="warpper_cont_i">
-                            <div class="title_i">
+                            <div class="title_i d-flex flex-column justify-content-between">
                                 <div class="row">
                                     <div class="col-12">
                                         <h1>Memory</h1>
-                                        <p>Memory est un jeu de cartes qui consiste à retourner deux cartes identiques pour les faire disparaître du jeu. Le but du jeu est de réussir à retourner toutes les cartes du jeu en un minimum de coups.</p>
-                                        <!-- <p>Le jeu est composé de 16 cartes, 8 paires de cartes identiques. Chaque carte est composée d'une image différente.</p> -->
+                                        <div class="row">
+                                            <p>Memory est un jeu de cartes qui consiste à retourner deux cartes identiques pour les faire disparaître du jeu. Le but du jeu est de réussir à retourner toutes les cartes du jeu en un minimum de coups.</p>
+                                            <!-- <p>Le jeu est composé de 16 cartes, 8 paires de cartes identiques. Chaque carte est composée d'une image différente.</p> -->
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="d-flex flex-column" id="color_font_a_i">
-                                    <button id="btn_play_i"><a href="">Jouer</a></button>
-                                    <button id="btn_scores_i"><a href="">Voir les scores</a></button>
+                                <div class="d-flex flex-row justify-content-around" id="color_font_a_i">
+                                    <button id="btn_play_i">
+                                    <i class="fa-solid fa-play"></i>
+                                        <a href="">Jouer</a>
+                                    </button>
+                                    <button id="btn_scores_i">
+                                        <i class="fa-solid fa-table-list"></i>
+                                        <a href="">Voir les scores</a>
+                                    </button>
                                 </div>
                             </div>
                             <div class="img_i">
