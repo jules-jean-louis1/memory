@@ -3,22 +3,18 @@ require_once 'classes/Connexion.php';
 $message = array();
 
 
-if (isset($_POST['signup'])) {
-    if (!empty($_POST['login']) && !empty($_POST['password']) && !empty($_POST['password_confirm'])) {
-        $login = $_POST['login'];
-        $password = $_POST['password'];
-        $password_confirm = $_POST['password_confirm'];
+$connexion = new Connexion();
 
-        if ($password == $password_confirm) {
-            $password = password_hash($password, PASSWORD_DEFAULT);
-            $connexion = new Connexion();
-            $connexion->register($login, $password);
-            $message[] = "Inscription réussie";
-        } else {
-            $message[]= "Les mots de passe ne correspondent pas";
-        }
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // The form was submitted, so try to register the user
+    $result = $connexion->register($_POST['username'], $_POST['password'], $_POST['confirmPassword']);
+    if ($result === true) {
+        // The user was successfully registered, so redirect to the login page
+        header('Location: login.php');
+        exit;
     } else {
-        $message[]= "Veuillez remplir tous les champs";
+        // There was an error, so store it in a variable to be displayed to the user
+        $error = $result;
     }
 }
 ?>
@@ -48,13 +44,9 @@ if (isset($_POST['signup'])) {
                         <form action="" method="post">
                             <h1>S'inscrire</h1>
                             <div class="form-group" id="padding_signup">
-                                        <?php if (isset($message)) : ?>
-                                            <?php foreach ($message as $msg) : ?>
-                                                <div class="alert alert-danger">
-                                                    <p><?= $msg ?></p>
-                                                </div>
-                                            <?php endforeach; ?>
-                                            <?php endif; ?>
+                                <?php if (isset($error)): ?>
+                                    <div class="alert alert-danger"><?php echo $error; ?></div>
+                                <?php endif; ?> 
                             </div>
                             <div class="form-group">
                             <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="face-grin" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-face-grin fa-fw fa-4x" style="--fa-secondary-opacity:1; --fa-secondary-color:var(--bs-teal); --fa-primary-color:var(--fa-navy);">
@@ -67,7 +59,7 @@ if (isset($_POST['signup'])) {
                             <div>
                                 <div class="form-group" id="padding_signup">
                                     <label for="login">Nom d'utilisateur :</label>
-                                    <input type="text" name="login" id="login" class="form-control"
+                                    <input type="text" name="username" id="login" class="form-control"
                                     placeholder="Entrer un nom d'utilisateur" aria-describedby="helpId">
                                 </div>
                                 <div class="form-group" id="padding_signup">
@@ -76,12 +68,12 @@ if (isset($_POST['signup'])) {
                                     placeholder="Entrer un mot de passe" aria-describedby="helpId">
                                 </div>
                                 <div class="form-group" id="padding_signup">
-                                    <label for="password_confirm">Confirmer le mot de passe :</label>
-                                    <input type="password" name="password_confirm" id="password_confirm" class="form-control"
+                                    <label for="confirmPassword">Confirmer le mot de passe :</label>
+                                    <input type="password" name="confirmPassword" id="password_confirm" class="form-control"
                                     placeholder="Confirmer le mot de passe" aria-describedby="helpId">
                                 </div>
                                 <div class="form-group" id="padding_signup">
-                                    <input type="submit" value="S'inscrire" name="signup" class="btn btn-outline-primary" id="btn_login">
+                                    <button type="submit" class="btn btn-outline-primary" id="btn_login">S'inscrire</button>
                                 </div>
                                 <div class="form-group" id="padding_signup">
                                     <p>Déjà inscrit ? <a href="login_form.php">Connectez-vous</a></p>

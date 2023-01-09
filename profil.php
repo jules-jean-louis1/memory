@@ -2,7 +2,21 @@
 session_start();
 require_once('./classes/Connexion.php');
 
+if (!isset($_SESSION['user'])) {
+    // The user is not logged in, so redirect to the login page
+    header('Location: login.php');
+    exit;
+}
 
+if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['password_confirmation'])) {
+    $connexion = new Connexion();
+    $connexion->update($_POST['username'], $_POST['password'], $_POST['password_confirmation']);
+}
+
+if (isset($_POST['suppr'])) {
+    $connexion = new Connexion();
+    $connexion->delete();
+}
 
 ?>
 
@@ -15,6 +29,7 @@ require_once('./classes/Connexion.php');
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
     rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
     crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
     <script src="https://kit.fontawesome.com/8b26d30613.js" crossorigin="anonymous"></script>
     <title>Memory - Profil</title>
 </head>
@@ -25,17 +40,11 @@ require_once('./classes/Connexion.php');
 <!-- C O N T E N T -->
 <main>
     <article>
-        <section>
-            <div class="container">
+        <section class="container">
+            <div class="warpper_login">
                 <div class="row">
                     <h1>
-                        <?php
-                            if (isset($_SESSION['login']) != null) {
-                                echo 'Bonjour ' . $_SESSION['login'];
-                            } else {
-                                echo 'Vous n\'êtes pas connecté';
-                            }
-                        ?>
+                        <?php echo 'Bonjour ' . $_SESSION['user']['username'];?>
                     </h1>
                     <div class="">
                             <h2>Meilleur Scores</h2>
@@ -46,16 +55,20 @@ require_once('./classes/Connexion.php');
                     <h5>Modifier Votre profil</h5>
                     <form action="" method="post">
                         <div class="form-group">
-                            <label for="login">Nom d'utilisateur : <?= $_SESSION['login'];?></label>
-                            <input type="text" name="login" id="login" value="<?= $_SESSION['login'];?>">
+                            <label for="username">Username:</label>
+                            <input type="text" id="username" name="username" value="<?php echo $_SESSION['user']['username']; ?>">
                         </div>
                         <div class="form-group">
                             <label for="password">Mot de passe :</label>
                             <input type="password" name="password" id="password" value="Mot de passe">
                         </div>
+                        <div class="form-group">
+                            <label for="password_confirmation">Confirmation du mot de passe :</label>
+                                <input type="password" name="password_confirmation" id="password" value="Mot de passe">
+                        </div>
                         <div class="row">
-                            <input type="submit" value="Modifier" class="btn btn-primary" name="modify">
-                            <input type="submit" value="Supprimer compte" class="btn btn-danger" name="suppr">
+                            <button type="submit" class="padding_update" name="submit" id="navbarDropdown">Update</button>
+                            <input type="submit" value="Supprimer le compte" class="padding_update" name="suppr" id="btn_deco_h">
                         </div>
                     </form>
                 </div>

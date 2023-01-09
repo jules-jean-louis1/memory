@@ -2,7 +2,7 @@
 
 if (isset($_POST['deconnexion'])) {
     $connexion = new Connexion();
-    $connexion->disconnect();
+    $connexion->logout();
 }
 ?>
 
@@ -54,7 +54,7 @@ if (isset($_POST['deconnexion'])) {
               <a href="https://github.com/jules-jean-louis1/memory"><i class="fa-brands fa-github fa-2xl color_icon_git"></i></a>
           </div>
         <div class="connect">
-          <?php if (isset($_SESSION['login']) != null) { ?>
+          <?php if (isset($_SESSION['user'])) { ?>
           <div class="d-flex flex-row" id="gap_header_button">
               <div class="">
                   <form action="" method="post">
@@ -64,14 +64,14 @@ if (isset($_POST['deconnexion'])) {
                 <div class="">
                   <a
                   class="nav-link dropdown-toggle"
-                  href="#"
+                  href="profil.php"
                   id="navbarDropdown"
                   role="button"
                   data-mdb-toggle="dropdown"
                   aria-expanded="false"
                   >
                   <i class="fas fa-user" style="padding-right: 5px;"></i>
-                  <?php echo $_SESSION['login']; ?>
+                  <?php echo $_SESSION['user']['username']; ?>
                   </a>
                       <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                           <li>
@@ -91,7 +91,7 @@ if (isset($_POST['deconnexion'])) {
           <div class="d-flex flex-row" id="gap_header_button">
               <div class="d-flex justify-content-center align-items-center">
                   <button class="btn btn-success" id="btn_signup_h">
-                      <a class="text-reset" href="signup_form.php">
+                      <a class="text-reset" href="register.php">
                           <i class="fa-solid fa-arrow-right-to-bracket"></i>
                           S'inscrire
                         </a>
@@ -101,7 +101,7 @@ if (isset($_POST['deconnexion'])) {
                   <button id="btn_login_h">
                       <a
                           class="text-reset"
-                          href="login_form.php"
+                          href="login.php"
                           role="button"
                           aria-expanded="false"
                       >
