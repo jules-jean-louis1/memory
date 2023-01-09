@@ -21,7 +21,6 @@ if (isset($_POST['deconnexion'])) {
         aria-expanded="false"
         aria-label="Toggle navigation"
       >
-          <i class="fa-solid fa-thumbs-up fa-5x"></i>
       </button>
   
       <!-- Collapsible wrapper -->
