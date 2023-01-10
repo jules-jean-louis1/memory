@@ -1,5 +1,5 @@
 <?php
-
+require_once('import/config.php');
 class Connexion
 {
     protected $db;
@@ -8,7 +8,11 @@ class Connexion
     {
         // Connect to the database
         try {
-            $this->db = new PDO('mysql:host=localhost;dbname=memory', 'root', '');
+            $this->db = new PDO(
+                "mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";charset=" . DB_CHARSET,
+                DB_USER,
+                DB_PASSWORD
+            );
             $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $e) {
             echo 'Connexion échouée : ' . $e->getMessage();
