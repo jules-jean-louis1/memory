@@ -1,50 +1,50 @@
 <?php
-require_once('card.php');
 
-class board
-{
-    private $pdo;
-    private $nbcoups;
-    private $foundpairs;
+require_once ('./import/score.php');
 
-    function __construct()
-    {
-        $this->pdo = new PDO('mysql:host=localhost;dbname=memory', 'root', '');
-        $this->nbcoups = 0;
-        $this->foundpairs = 1;
+class Image {
+    private $total;
+    public $_face;
+    public $_back;
+    public $_identifiant;
+    public $_retourner;
+    
+    public function __construct (string $face, string $back, int $identifiant, int $retourner){
+        $this->_face = $face;
+        $this->_back = $back;
+        $this->_identifiant = $identifiant;
+        $this->_retourner = $retourner;
+    }
+    
+    public function tournerCarte ($situation){
+        $situation->_retourner = 2;
+
     }
 
-    //Crée le deck (chaque carte est une instance de la classe card)
-    public function createGame($nbcards)
-    {
-        $pairs1 = $this->pdo->Select("SELECT * FROM cards ORDER BY rand() LIMIT $nbcards");
-        $pairs2 = $pairs1;
-        $deck = array_merge($pairs1, $pairs2);
-        shuffle($deck);
+    public function retournerCarte ($test){
+        $test->_retourner = 1;
 
-        for ($i = 0; $i < count($deck); $i++) {
-            $deck[$i] = new card($i, $deck[$i]['id'], $deck[$i]['img_url']);
-        }
-        return $deck;
     }
 
-    function addCoup()
-    {
-        $this->nbcoups++;
-    }
+    public function foundPairs ($uniqueCarte){
 
-    function getCoups()
-    {
-        return $this->nbcoups;
-    }
+        $id_carte = $uniqueCarte->_identifiant;
+        $_SESSION['pairs']["$id_carte"] = $uniqueCarte;
+        $face = $uniqueCarte->_face;
 
-    function AddPairsFound()
-    {
-        $this->foundpairs++;
-    }
+        
+        if($_SESSION['clickcounter'] % 2 == 0){
+            $_SESSION['found']=0;
+             
+            if ($_SESSION['face'] !== $face){           
+                $_SESSION['signal'] = 1;
+                  echo "<meta http-equiv='refresh' content='1;URL=memory.php'>";
+            }
+        }  
 
-    function getPairsFound()
-    {
-        return $this->foundpairs;
-    }
+        $_SESSION['face'] = $face;
+
+    } 
+ 
 }
+?>
