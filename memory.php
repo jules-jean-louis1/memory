@@ -9,6 +9,20 @@ if (isset($_POST['card_id']))
     }
 }
 
+$cards =
+    [
+        ["nom" => "as-de-pique", "image" => "images/cartes/01_of_spades_A.svg.png", "pair" => 1],
+        ["nom" => "as-de-pique", "image" => "images/cartes/01_of_spades_A.svg.png", "pair" => 1],
+        ["nom" => "2-de-pique", "image" => "images/cartes/02_of_spades.svg.png", "pair" => 2],
+        ["nom" => "2-de-pique", "image" => "images/cartes/02_of_spades.svg.png", "pair" => 2],
+        ["nom" => "Roi-de-pique", "image" => "images/cartes/167px-King_of_spades_fr.svg.png", "pair" => 3],
+        ["nom" => "Roi-de-pique", "image" => "images/cartes/167px-King_of_spades_fr.svg.png", "pair" => 3],
+    ];
+
+
+if (!isset($_SESSION["score"])){
+    $_SESSION["score"] = 0;
+}
 
 ?>
 
@@ -28,41 +42,46 @@ if (isset($_POST['card_id']))
             <section class="container">
             <p>Select two cards to flip over and try to find pairs.</p>
             <div class="game-board">
-                <form method="post" class="d-flex flex-row justify-content-around">
-                    <?php
-                    $cards = 
-                    [
-                        "As de Pique", 
-                        "2 de coeur", 
-                        "Reine de Carreau", 
-                        "Valets de trèfle", 
-                        "As de Pique", 
-                        "2 de coeur", 
-                        "Reine de Carreau", 
-                        "Valets de trèfle",
-                    ];
-                    shuffle($cards);
-                    $i = 0;
-                    foreach ($cards as $card) { ?>
-                        <div class="display_row">
-                            <div id="card_img_box">
-
-                            </div>
-                            <input type="radio" name="card" value="<?php echo $card ?>"> <!-- . $card . '<br>' --> 
+                    <div class="class_me">
+                        <form method="post" action="">
+                        <?php
+                        foreach($cards as $card) 
+                        { ?>
+                        
+                        <div class='m-card'>
+                            <button type="submit" name="<?= $card['nom'] ?>">
+                                <img src='<?=$card["image"]?>' alt="" style="width: 50px;">
+                            </button>
                         </div>
-                    <?php  $i++;
-                    }
-                    
-                    ?>
+                        <?php
+                        }
+                        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                            if (isset($_POST['as-de-pique'])) {
+                                echo "as de pique";
+                            } elseif (isset($_POST['2-de-pique'])) {
+                                echo "2 de pique";
+                            } elseif (isset($_POST['Roi-de-pique'])) {
+                                echo "Roi de pique";
+                            } else {
+                                echo "rien";
+                            }
+                        }
+                        ?>
+                        </form>
                     </div>
-
-                    <input type="hidden" name="card_id" value="<?php echo $i; ?>">
-                    <button type="submit">Selectionné 2 Cartes</button>
-
-                </form>
-
             </section>
         </article>
     </main>
+    <script>
+        var count=0;
+        $("input[name='card']").on("change", function() {
+            if(count>=2){
+                count=0;
+                $("input[name='card']").prop('checked', false);
+            }
+            else
+            count++;
+        });
+</script>
 </body>
 </html>
