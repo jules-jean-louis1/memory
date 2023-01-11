@@ -5,12 +5,12 @@
         $test = floor($points/2);
         echo $test;
 
-        @addScore($test, $_SESSION['user']['id']);
+        @addScore($test, $_SESSION['id']);
     }
 
 
     function addScore($score, $id_utilisateur){
-        
+
         $pdo = new PDO('mysql:host=localhost;dbname=memory', 'root', '');
         $sql = "SELECT * FROM game WHERE id_utilisateurs = :id_utilisateur";
         @$insertDB = $pdo -> prepare($sql);

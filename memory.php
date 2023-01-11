@@ -3,40 +3,11 @@
 require_once 'classes/Card.php';
 require_once './import/score.php';
 require_once './import/level.php';
+require_once './import/Creation_card.php';
 
 session_start();
 
-$lucifer = new Image ("Images/lucifer.png", "images/cartes/backofcards.png", 1, 1);
-$reading = new Image ("Images/reading.png", "images/cartes/backofcards.png", 2, 1);
-$renaissance = new Image ("Images/renaissance.png", "images/cartes/backofcards.png", 3, 1);
-$spring1 = new Image ("Images/spring1.png", "images/cartes/backofcards.png", 4, 1);
-$spring2 = new Image ("Images/spring2.png", "images/cartes/backofcards.png", 5, 1);
-$spring3 = new Image ("Images/spring3.png", "images/cartes/backofcards.png", 6, 1);
-$luciferBis = new Image ("Images/lucifer.png", "images/cartes/backofcards.png", 7, 1);
-$readingBis = new Image ("Images/reading.png", "images/cartes/backofcards.png", 8, 1);
-$renaissanceBis = new Image ("Images/renaissance.png", "images/cartes/backofcards.png", 9, 1);
-$spring1Bis = new Image ("Images/spring1.png", "images/cartes/backofcards.png", 10, 1);
-$spring2Bis = new Image ("Images/spring2.png", "images/cartes/backofcards.png", 11, 1);
-$spring3Bis = new Image ("Images/spring3.png", "images/cartes/backofcards.png", 12, 1);
-$crown = new Image ("Images/crown.png", "images/cartes/backofcards.png", 13, 1);
-$renaissance1 = new Image ("Images/renaissance1.png", "images/cartes/backofcards.png", 14, 1);
-$eyes = new Image ("Images/eyes.png", "images/cartes/backofcards.png", 15, 1);
-$sunflowers = new Image ("Images/sunflowers.png", "images/cartes/backofcards.png", 16, 1);
-$grec = new Image ("Images/grec.png", "images/cartes/backofcards.png", 17, 1);
-$laurier = new Image ("Images/laurier.png", "images/cartes/backofcards.png", 18, 1);
-$crownBis = new Image ("Images/crown.png", "images/cartes/backofcards.png", 19, 1);
-$renaissance1Bis = new Image ("Images/renaissance1.png", "images/cartes/backofcards.png", 20, 1);
-$eyesBis = new Image ("Images/eyes.png", "images/cartes/backofcards.png", 21, 1);
-$sunflowersBis = new Image ("Images/sunflowers.png", "images/cartes/backofcards.png", 22, 1);
-$grecBis = new Image ("Images/grec.png", "images/cartes/backofcards.png", 23, 1);
-$laurierBis = new Image ("Images/laurier.png", "images/cartes/backofcards.png", 24, 1);
 
-
-$faceUpArrayEasy = array($lucifer, $reading, $renaissance, $luciferBis, $readingBis, $renaissanceBis);
-$faceUpArrayMedium = array($lucifer, $reading, $renaissance, $spring1, $spring2,
-$spring3, $luciferBis, $readingBis, $renaissanceBis, $spring1Bis, $spring2Bis, $spring3Bis);
-$faceUpArrayHard = array($lucifer, $reading, $renaissance, $spring1, $spring2,
-$spring3, $crown, $renaissance1, $eyes, $sunflowers, $grec, $laurier, $luciferBis, $readingBis, $renaissanceBis, $spring1Bis, $spring2Bis, $spring3Bis, $crownBis, $renaissance1Bis, $eyesBis, $sunflowersBis, $grecBis, $laurierBis);
 
 
 if(isset($_POST['startgame'])){
@@ -111,99 +82,69 @@ if(isset($_SESSION['found'])){
 <!doctype html>
 <html lang="eng">
 <head>
-  <meta charset="utf-8">
-  <title>Memory game</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="memory.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+    <meta charset="utf-8">
+    <title>Memory game</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="memory.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<?php if(!isset($_SESSION['user'])){
-        ?>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.php">Accueil</a></li>
-                <li><a href="accueil-jeu.php">Game</a></li>
-                <li><a href="inscription.php">Inscription</a></li>
-                <li><a href="connexion.php">Connexion</a></li>
-            </ul>
-        </nav>
-    </header>   
-    <?php
-    }else {
-        ?>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.php">Accueil</a></li>
-                <li><a href="accueil-jeu.php">Game</a></li>
-                <li><a href="profil.php">Profil</a></li>
-                <li>
-                    <form action="deconnexion.php" method="post">
-                        <button class="#" type="submit" name="deco">
-                            Deconnexion
-                        </button>
-                    </form>
-                </li>
-            </ul>
-        </nav>
-    </header>  
-    <?php
-        }
-    ?>
+<!-- H E A D E R -->
+<?php include_once('./import/header.php'); ?>
+<!-- H E A D E R - E N D -->
+<!-- C O N T E N T -->
 
-<section class="form-jeu">
-    <form action="" class="form-lvl" method="post">
-        <label for="lvl">Choose a level:</label>
-            <select id="lvl" name="lvl">
-                <option value="easy">Easy</option>
-                <option value="medium">Medium</option>
-                <option value="hard">Hard</option>
-            </select>
-            <button type="submit" name="startgame">Start game</button>
-    </form>
-
-    <form action="" method="post">
-        <button type="submit" name="restartgame">Restart game</button>
-    </form>
-</section>
-    <div class="table-memory">
-    <?php 
-        if(isset($_SESSION['start'])){
-            foreach($_SESSION['start'] as $key => $value) { 
-                ?>
-                
-                <?php
-                    // var_dump($value->_retourner);
-
-                    if($value->_retourner == 2){
-                ?>      
-                        <img src="<?= $value -> _face; ?>" width="100px">                                
-                <?php
-                        }else{     
-                ?> <form action="" method='post'>
-                        <input type="hidden" name="retourner" value="<?= $value->_retourner ?>"/>
-                        <input type="hidden" name="identifiant" value="<?= $value->_identifiant ?>"/>
-                        <input type="hidden" name="index" value="<?= $key ?>"/>
-                        <button type="submit" name="submit">
-                            <img src="<?= $value -> _back; ?>" width="100px">
-                        </button>                   
-                    </form>
-                    
-              <?php  
-                                if (isset($_POST['index']))
-                                $_SESSION['start'][$_POST['index']]->foundPairs($_SESSION['start'][$_POST['index']]);
- 
-                        }
-                    }
-
-                }
-                
-            ?>
-    </div>
+<main>
+    <article class="">
+        <section class="">
+            <div class="container">
+                <div class="dislpay_deck">
+                    <div class="form_level">
+                        <form action="" class="form-lvl" method="post">
+                            <label for="lvl">Choisir un niveau :</label>
+                                <select id="lvl" name="lvl">
+                                    <option value="easy">Facile</option>
+                                    <option value="medium">Moyen</option>
+                                    <option value="hard">Difficile</option>
+                                </select>
+                            <button type="submit" name="startgame" id="btn_start_game">Démarrer</button>
+                        </form>
+                    </div>
+                    <div class="table-memory">
+                        <?php if(isset($_SESSION['start'])){
+                                foreach($_SESSION['start'] as $key => $value) { ?>
+                                    <?php   if($value->_retourner == 2){    ?>
+                                            <img src="<?= $value -> _face; ?>" width="160px" class="image_display_memory">
+                                    <?php }else{ ?>
+                                            <form action="" method='post'>
+                                                <input type="hidden" name="retourner" value="<?= $value->_retourner ?>" class="image_display_memory"/>
+                                                <input type="hidden" name="identifiant" value="<?= $value->_identifiant ?>"class="image_display_memory"/>
+                                                <input type="hidden" name="index" value="<?= $key ?>" class="image_display_memory"/>
+                                                <button type="submit" name="submit">
+                                                    <img src="<?= $value -> _back; ?>" width="160px" class="image_display_memory">
+                                                </button>
+                                            </form>
+                                    <?php
+                                            if (isset($_POST['index']))
+                                                    $_SESSION['start'][$_POST['index']]->foundPairs($_SESSION['start'][$_POST['index']]);
+                                            }
+                                        }
+                                    }
+                                ?>
+                        </div>
+                        <div class="row">
+                            <form action="" method="post">
+                                <button type="submit" name="restartgame" id="btn_restart_game">Restart game</button>
+                            </form>
+                        </div>
+                </div>
+                </div>
+            </section>
+    </article>
+</main>
 </body>
 </html>

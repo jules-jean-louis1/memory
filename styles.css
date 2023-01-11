@@ -270,6 +270,70 @@ main {
 .form_m {
     display: flex;
 }
+.table-memory {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+.form-lvl {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.dislpay_deck {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 50px;
+    background: white;
+    border-radius: 8px;
+    padding: 80px;
+}
+#btn_start_game {
+    background-color: #63E6BE;
+    border: 0.125em solid #183153;
+    border-radius: 0.5em;
+    box-shadow: 0 0.375em 0 #183153;
+    font-weight: 900;
+    color: #183153;
+    padding: 7px 20px;
+}
+#btn_start_game:hover {
+    background-color: #0CA678;
+}
+#btn_restart_game {
+    background-color: transparent;
+    border: 0.125em solid #183153;
+    border-radius: 0.5em;
+    box-shadow: 0 0.375em 0 #183153;
+    font-weight: 900;
+    color: #183153;
+    padding: 7px 20px;
+    width: 400px;
+}
+#btn_restart_game:hover {
+    background-color: #0CA678;
+}
+#lvl {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 40%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 2px solid #183153;
+    margin-bottom: 10px;
+}
+.image_display_memory {
+    box-shadow: 0 0.375em 0 #0CA678;
+    border-radius: 8px;
+    border: 2px solid #0CA678;   
+}
+.image_display_memory:hover {
+    box-shadow: 0 0.375em 0 #0CA678;
+    border: 4px solid #0CA678;
+    transition: ease-in ;
+}
 
 /*#####################################################################
 #######################################################################

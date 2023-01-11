@@ -61,7 +61,8 @@ class Connexion
                     // The password is correct, so log the user in
                     session_start();
                     $_SESSION['user'] = $user;
-                    
+                    $_SESSION['id'] = $user['id'];
+                    $_SESSION['username'] = $user['username'];
                     return true;
                 } else {
                     // The password is incorrect
