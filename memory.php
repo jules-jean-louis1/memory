@@ -1,35 +1,35 @@
 <?php
 
-require_once 'card.php';
-require_once 'score.php';
-require_once 'level.php';
+require_once 'classes/Card.php';
+require_once './import/score.php';
+require_once './import/level.php';
 
 session_start();
 
-$lucifer = new Image ("Images/lucifer.png", ".images/cartes/backofcards.png", 1, 1);
-$reading = new Image ("Images/reading.png", ".images/cartes/backofcards.png", 2, 1);
-$renaissance = new Image ("Images/renaissance.png", ".images/cartes/backofcards.png", 3, 1);
-$spring1 = new Image ("Images/spring1.png", ".images/cartes/backofcards.png", 4, 1);
-$spring2 = new Image ("Images/spring2.png", ".images/cartes/backofcards.png", 5, 1);
-$spring3 = new Image ("Images/spring3.png", ".images/cartes/backofcards.png", 6, 1);
-$luciferBis = new Image ("Images/lucifer.png", ".images/cartes/backofcards.png", 7, 1);
-$readingBis = new Image ("Images/reading.png", ".images/cartes/backofcards.png", 8, 1);
-$renaissanceBis = new Image ("Images/renaissance.png", ".images/cartes/backofcards.png", 9, 1);
-$spring1Bis = new Image ("Images/spring1.png", ".images/cartes/backofcards.png", 10, 1);
-$spring2Bis = new Image ("Images/spring2.png", ".images/cartes/backofcards.png", 11, 1);
-$spring3Bis = new Image ("Images/spring3.png", ".images/cartes/backofcards.png", 12, 1);
-$crown = new Image ("Images/crown.png", ".images/cartes/backofcards.png", 13, 1);
-$renaissance1 = new Image ("Images/renaissance1.png", ".images/cartes/backofcards.png", 14, 1);
-$eyes = new Image ("Images/eyes.png", ".images/cartes/backofcards.png", 15, 1);
-$sunflowers = new Image ("Images/sunflowers.png", ".images/cartes/backofcards.png", 16, 1);
-$grec = new Image ("Images/grec.png", ".images/cartes/backofcards.png", 17, 1);
-$laurier = new Image ("Images/laurier.png", ".images/cartes/backofcards.png", 18, 1);
-$crownBis = new Image ("Images/crown.png", ".images/cartes/backofcards.png", 19, 1);
-$renaissance1Bis = new Image ("Images/renaissance1.png", ".images/cartes/backofcards.png", 20, 1);
-$eyesBis = new Image ("Images/eyes.png", ".images/cartes/backofcards.png", 21, 1);
-$sunflowersBis = new Image ("Images/sunflowers.png", ".images/cartes/backofcards.png", 22, 1);
-$grecBis = new Image ("Images/grec.png", ".images/cartes/backofcards.png", 23, 1);
-$laurierBis = new Image ("Images/laurier.png", ".images/cartes/backofcards.png", 24, 1);
+$lucifer = new Image ("Images/lucifer.png", "images/cartes/backofcards.png", 1, 1);
+$reading = new Image ("Images/reading.png", "images/cartes/backofcards.png", 2, 1);
+$renaissance = new Image ("Images/renaissance.png", "images/cartes/backofcards.png", 3, 1);
+$spring1 = new Image ("Images/spring1.png", "images/cartes/backofcards.png", 4, 1);
+$spring2 = new Image ("Images/spring2.png", "images/cartes/backofcards.png", 5, 1);
+$spring3 = new Image ("Images/spring3.png", "images/cartes/backofcards.png", 6, 1);
+$luciferBis = new Image ("Images/lucifer.png", "images/cartes/backofcards.png", 7, 1);
+$readingBis = new Image ("Images/reading.png", "images/cartes/backofcards.png", 8, 1);
+$renaissanceBis = new Image ("Images/renaissance.png", "images/cartes/backofcards.png", 9, 1);
+$spring1Bis = new Image ("Images/spring1.png", "images/cartes/backofcards.png", 10, 1);
+$spring2Bis = new Image ("Images/spring2.png", "images/cartes/backofcards.png", 11, 1);
+$spring3Bis = new Image ("Images/spring3.png", "images/cartes/backofcards.png", 12, 1);
+$crown = new Image ("Images/crown.png", "images/cartes/backofcards.png", 13, 1);
+$renaissance1 = new Image ("Images/renaissance1.png", "images/cartes/backofcards.png", 14, 1);
+$eyes = new Image ("Images/eyes.png", "images/cartes/backofcards.png", 15, 1);
+$sunflowers = new Image ("Images/sunflowers.png", "images/cartes/backofcards.png", 16, 1);
+$grec = new Image ("Images/grec.png", "images/cartes/backofcards.png", 17, 1);
+$laurier = new Image ("Images/laurier.png", "images/cartes/backofcards.png", 18, 1);
+$crownBis = new Image ("Images/crown.png", "images/cartes/backofcards.png", 19, 1);
+$renaissance1Bis = new Image ("Images/renaissance1.png", "images/cartes/backofcards.png", 20, 1);
+$eyesBis = new Image ("Images/eyes.png", "images/cartes/backofcards.png", 21, 1);
+$sunflowersBis = new Image ("Images/sunflowers.png", "images/cartes/backofcards.png", 22, 1);
+$grecBis = new Image ("Images/grec.png", "images/cartes/backofcards.png", 23, 1);
+$laurierBis = new Image ("Images/laurier.png", "images/cartes/backofcards.png", 24, 1);
 
 
 $faceUpArrayEasy = array($lucifer, $reading, $renaissance, $luciferBis, $readingBis, $renaissanceBis);

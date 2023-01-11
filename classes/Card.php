@@ -1,6 +1,6 @@
 <?php
 
-require_once ('./import/score.php');
+require_once ('import/score.php');
 
 class Image {
     private $total;
