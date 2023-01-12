@@ -80,7 +80,7 @@ if(isset($_SESSION['found'])){
 
 
 <!doctype html>
-<html lang="eng">
+<html lang="fr">
 <head>
     <meta charset="utf-8">
     <title>Memory game</title>
@@ -119,7 +119,7 @@ if(isset($_SESSION['found'])){
                                 foreach($_SESSION['start'] as $key => $value) { ?>
                                     <?php   if($value->_retourner == 2){    ?>
                                             <img src="<?= $value -> _face; ?>" width="160px" class="image_display_memory">
-                                    <?php }else{ ?>
+                                    <?php }else { ?>
                                             <form action="" method='post'>
                                                 <input type="hidden" name="retourner" value="<?= $value->_retourner ?>" class="image_display_memory"/>
                                                 <input type="hidden" name="identifiant" value="<?= $value->_identifiant ?>"class="image_display_memory"/>
