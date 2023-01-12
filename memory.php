@@ -11,9 +11,6 @@ session_start();
 
 
 if(isset($_POST['startgame'])){
-
-
-
     if($_POST['lvl'] == "easy"){
         lvlShuffle($faceUpArrayEasy);
     }
@@ -115,9 +112,9 @@ if(isset($_SESSION['found'])){
                         </form>
                     </div>
                     <div class="table-memory">
-                        <?php if(isset($_SESSION['start'])){
+                        <?php if(isset($_SESSION['start'])) {
                                 foreach($_SESSION['start'] as $key => $value) { ?>
-                                    <?php   if($value->_retourner == 2){    ?>
+                                    <?php   if ($value->_retourner == 2) {    ?>
                                             <img src="<?= $value -> _face; ?>" width="160px" class="image_display_memory">
                                     <?php }else { ?>
                                             <form action="" method='post'>
@@ -146,5 +143,9 @@ if(isset($_SESSION['found'])){
             </section>
     </article>
 </main>
+<!-- C O N T E N T  E N D -->
+<!-- F O O T E R -->
+<?php include_once('./import/footer.php'); ?>
+<!-- F O O T E R - E N D -->
 </body>
 </html>
