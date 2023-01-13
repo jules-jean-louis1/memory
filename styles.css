@@ -264,7 +264,7 @@ main {
     background-color: #146ebe;
 }
 .game-board {
-    width: 15vw;
+    width: 25vw;
 }
 .class_me {
     display: flex;
@@ -277,6 +277,7 @@ main {
     display: flex;
     justify-content: center;
     gap: 5px;
+    flex-wrap: wrap;
 }
 .form-lvl {
     display: flex;
@@ -333,6 +334,25 @@ main {
     border: 2px solid #0CA678;   
 }
 .image_display_memory:hover {
+    box-shadow: 0 0.375em 0 #0CA678;
+    border: 4px solid #0CA678;
+    transition: ease-in ;
+}
+#memory_display_card {
+    border: transparent;
+    border-radius: 8px;
+  }
+
+/* .image-container img {
+    width: calc(100% / 6);
+    flex-shrink: 0;
+  } */
+.display_card_form button {
+    box-shadow: 0 0.375em 0 #0CA678;
+    border-radius: 8px;
+    border: 2px solid #0CA678; 
+}
+.display_card_form button:hover {
     box-shadow: 0 0.375em 0 #0CA678;
     border: 4px solid #0CA678;
     transition: ease-in ;

@@ -117,12 +117,14 @@ if(isset($_SESSION['found'])){
                                     <?php   if ($value->_retourner == 2) {    ?>
                                             <img src="<?= $value -> _face; ?>" width="160px" class="image_display_memory">
                                     <?php }else { ?>
-                                            <form action="" method='post'>
+                                            <form action="" method='post' class="display_card_form">
                                                 <input type="hidden" name="retourner" value="<?= $value->_retourner ?>" class="image_display_memory"/>
                                                 <input type="hidden" name="identifiant" value="<?= $value->_identifiant ?>"class="image_display_memory"/>
                                                 <input type="hidden" name="index" value="<?= $key ?>" class="image_display_memory"/>
-                                                <button type="submit" name="submit">
-                                                    <img src="<?= $value -> _back; ?>" width="160px" class="image_display_memory">
+                                                <button type="submit" name="submit" class="memory_display_card">
+                                                        <div class="image-container">
+                                                            <img src="<?= $value -> _back; ?>" width="160px"  class="img-responsive" id="image_display_memory">
+                                                        </div>
                                                 </button>
                                             </form>
                                     <?php
