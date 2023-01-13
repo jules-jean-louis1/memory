@@ -6,7 +6,7 @@ class Connexion
 
     public function __construct()
     {
-        // Connect to the database
+        // Connexion a la base de données
         try {
             $this->db = new PDO(
                 "mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";charset=" . DB_CHARSET,
@@ -22,23 +22,23 @@ class Connexion
 
     public function register($username, $password, $confirmPassword)
     {
-        // Check if the username is already in use
+        // Check si un utilisateurs utilise déjà ce login
         $stmt = $this->db->prepare('SELECT * FROM utilisateurs WHERE username = :username');
         $stmt->bindParam(':username', $username);
         $stmt->execute();
         $user = $stmt->fetch();
 
         if ($user) {
-            // The username is already in use
+            // Le nom d'utilisateur est déjà utilisé
             return "Nom d'utilisateur déjà utilisé";
         } elseif ($password != $confirmPassword) {
-            // The passwords do not match
+            // Les password ne match pas
             return 'Les mots de passe ne correspondent pas';
         } else {
-            // The username is available and the passwords match, so create a hash for the password
+            // Le login existe est les password match
             $hash = password_hash($password, PASSWORD_DEFAULT);
 
-            // Insert the new user into the database
+            // Insersion dans la base de données
             $stmt = $this->db->prepare('INSERT INTO utilisateurs (username, password) VALUES (:username, :password)');
             $stmt->bindParam(':username', $username);
             $stmt->bindParam(':password', $hash);
