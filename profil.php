@@ -39,38 +39,46 @@ if (isset($_POST['suppr'])) {
 <!-- H E A D E R - E N D -->
 <!-- C O N T E N T -->
 <main>
-    <article>
-        <section class="container">
-            <div class="warpper_login">
-                <div class="row">
-                    <h1>
-                        <?php echo 'Bonjour ' . $_SESSION['user']['username'];?>
-                    </h1>
-                    <div class="">
-                            <h2>Meilleur Scores</h2>
+    <article class="warpper_dashboard container">
+        <section id="full_width_profil" class="d-flex justify-content-center">
+            <div class="w-100 p-3">
+                <div class="">
+                    <div class="text-uppercase">
+                        <h1>
+                            <?php echo 'Bonjour ' . $_SESSION['user']['username'];?>
+                        </h1>
                     </div>
-                    <div>
-
+                    <div class="w-100 p-3">
+                        <p>
+                            Bonjour et Bienvenue sur votre page profil, ici vous pouvez consutler vos meilleurs scores ainsi qu'apporter des modifications sur votre profil.
+                        </p>
                     </div>
-                    <h5>Modifier Votre profil</h5>
-                    <form action="" method="post">
-                        <div class="form-group">
-                            <label for="username">Username:</label>
-                            <input type="text" id="username" name="username" value="<?php echo $_SESSION['user']['username']; ?>">
+                    <div class="d-flex justify-content-between" id="width_profil">
+                        <div class="w-40 p-3">
+                                <h2>Meilleur Scores</h2>
                         </div>
-                        <div class="form-group">
-                            <label for="password">Mot de passe :</label>
-                            <input type="password" name="password" id="password" value="Mot de passe">
+                        <div class="w-40 p-3">
+                            <h5>Modifier Votre profil</h5>
+                            <form action="" method="post">
+                                <div class="form-group">
+                                    <label for="username">Username:</label>
+                                    <input type="text" id="username" name="username" value="<?php echo $_SESSION['user']['username']; ?>">
+                                </div>
+                                <div class="form-group">
+                                    <label for="password">Mot de passe :</label>
+                                    <input type="password" name="password" id="password" value="Mot de passe">
+                                </div>
+                                <div class="form-group">
+                                    <label for="password_confirmation">Confirmation du mot de passe :</label>
+                                        <input type="password" name="password_confirmation" id="password" value="Mot de passe">
+                                </div>
+                                <div class="row">
+                                    <button type="submit" class="padding_update" name="submit" id="navbarDropdown">Update</button>
+                                    <input type="submit" value="Supprimer le compte" class="padding_update" name="suppr" id="btn_deco_h">
+                                </div>
+                            </form>
                         </div>
-                        <div class="form-group">
-                            <label for="password_confirmation">Confirmation du mot de passe :</label>
-                                <input type="password" name="password_confirmation" id="password" value="Mot de passe">
-                        </div>
-                        <div class="row">
-                            <button type="submit" class="padding_update" name="submit" id="navbarDropdown">Update</button>
-                            <input type="submit" value="Supprimer le compte" class="padding_update" name="suppr" id="btn_deco_h">
-                        </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </section>
