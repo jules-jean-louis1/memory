@@ -4,6 +4,7 @@ require_once 'classes/Card.php';
 require_once './import/score.php';
 require_once './import/level.php';
 require_once './import/Creation_card.php';
+require_once './function/unset.php';
 
 session_start();
 
@@ -22,12 +23,7 @@ if(isset($_POST['startgame'])){
 
 }
 if(isset($_POST['restartgame'])){
-    unset($_SESSION['indexShowed']);
-    unset($_SESSION['start']);
-    unset($_SESSION['clickcounter']);
-    unset($_SESSION['signal']);
-    unset($_SESSION['found']);
-    unset($_SESSION['foundcards']);
+    unsetGame();
 }
 
 if (!isset($_SESSION['indexShowed']))
@@ -63,13 +59,7 @@ $_SESSION['clickcounter']=$_SESSION['clickcounter']+1;
 
 
 if(isset($_SESSION['found'])){
-    if(@isset($_SESSION['foundcards'])){
-        if($_SESSION['foundcards'] == ((count($_SESSION['start'])/2)-1)){ 
-            if(!empty($_SESSION['clickcounter'])){
-                getScore($_SESSION['clickcounter']);
-            }
-        }
-    }
+    foundCard();
 } 
 
 
