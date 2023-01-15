@@ -56,6 +56,9 @@ if (isset($_POST['suppr'])) {
                     <div class="d-flex justify-content-between" id="width_profil">
                         <div class="w-40 p-3">
                                 <h2>Meilleur Scores</h2>
+                                <div class="table_score">
+                                    
+                                </div>
                         </div>
                         <div class="w-40 p-3">
                             <h5>Modifier Votre profil</h5>

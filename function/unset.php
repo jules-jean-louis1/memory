@@ -13,6 +13,7 @@ function foundCard()
         if($_SESSION['foundcards'] == ((count($_SESSION['start'])/2)-1)){ 
             if(!empty($_SESSION['clickcounter'])){
                 getScore($_SESSION['clickcounter']);
+                
             }
         }
     }

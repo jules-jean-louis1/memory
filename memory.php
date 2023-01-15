@@ -58,11 +58,12 @@ $_SESSION['clickcounter']=$_SESSION['clickcounter']+1;
 }
 
 
+
 if(isset($_SESSION['found'])){
     foundCard();
 } 
 
-
+/* var_dump($_SESSION['indexShowed']); */
 ?>
 
 
@@ -99,6 +100,10 @@ if(isset($_SESSION['found'])){
                                     <option value="hard">Difficile</option>
                                 </select>
                             <button type="submit" name="startgame" id="btn_start_game">Démarrer</button>
+                            <div class="alert alert-danger">
+                                <p>Nombre de coup: <?= $_SESSION['clickcounter'];?></p>
+                                <P>Votre Score: <?php if (isset($_SESSION['indexShowed'][0]));?></P>
+                            </div>
                         </form>
                     </div>
                     <div class="table-memory">
@@ -139,5 +144,8 @@ if(isset($_SESSION['found'])){
 <!-- F O O T E R -->
 <?php include_once('./import/footer.php'); ?>
 <!-- F O O T E R - E N D -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/8b26d30613.js" crossorigin="anonymous"></script>
 </body>
 </html>
